@@ -1,0 +1,980 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #090014;
+    color: white;
+}
+
+
+/* =================================
+   SCREEN
+================================= */
+
+.screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+
+    z-index: 10;
+
+    overflow: hidden;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* =================================
+   FIREWORK CANVAS
+================================= */
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+
+/* =================================
+   COUNTDOWN
+================================= */
+
+#countdownScreen {
+    background:
+        radial-gradient(
+            circle at center,
+            #30115e 0%,
+            #110021 45%,
+            #050008 100%
+        );
+}
+
+.countdown-content {
+    text-align: center;
+    position: relative;
+    z-index: 20;
+}
+
+.prepare {
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: #e5c8ff;
+    margin-bottom: 20px;
+}
+
+#countdownNumber {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(100px, 30vw, 190px);
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #ffd5ec,
+            #d9b5ff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: countdownPop 1s ease;
+}
+
+#countdownText {
+    margin-top: 15px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 32px;
+
+    color: #ffd8ed;
+}
+
+@keyframes countdownPop {
+
+    0% {
+        transform: scale(1.7);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(0.95);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =================================
+   MUSIC BUTTON
+================================= */
+
+.music-btn {
+    position: fixed;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 200;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    background: rgba(20, 5, 35, 0.65);
+
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(10px);
+
+    font-family: "Poppins", sans-serif;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.05);
+}
+
+
+/* =================================
+   BIRTHDAY
+================================= */
+
+#birthdayScreen {
+    background:
+        linear-gradient(
+            135deg,
+            #160022,
+            #35003e,
+            #16002d
+        );
+}
+
+.birthday-bg {
+    position: absolute;
+    inset: -20%;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 92, 164, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(140, 90, 255, 0.3),
+            transparent 35%
+        );
+
+    animation: bgMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+
+    from {
+        transform: translate(-3%, -2%) scale(1);
+    }
+
+    to {
+        transform: translate(3%, 2%) scale(1.08);
+    }
+}
+
+.birthday-card {
+    position: relative;
+    z-index: 20;
+
+    width: min(90%, 520px);
+
+    padding: 38px 25px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(15px);
+
+    animation: cardAppear 1s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.top-line {
+    color: #f5cde2;
+
+    font-size: 13px;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 18px;
+}
+
+.birthday-card h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(42px, 12vw, 70px);
+
+    line-height: 0.95;
+
+    letter-spacing: 2px;
+}
+
+.birthday-card h1 span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff91c8,
+            #fff,
+            #cba4ff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.name {
+    margin-top: 18px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 54px;
+
+    font-weight: 700;
+
+    color: #ffd4e9;
+}
+
+.name span {
+    font-size: 32px;
+}
+
+.wish {
+    max-width: 390px;
+
+    margin: 12px auto 25px;
+
+    color: #e7ddea;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =================================
+   BUTTON
+================================= */
+
+.main-btn {
+
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5caa,
+            #9c65ff
+        );
+
+    box-shadow:
+        0 8px 25px rgba(181, 82, 255, 0.3);
+
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+.main-btn:active {
+    transform: scale(0.96);
+}
+
+
+/* =================================
+   FLOATING HEARTS
+================================= */
+
+.floating-hearts {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.floating-hearts span {
+    position: absolute;
+
+    color: rgba(255,255,255,0.25);
+
+    font-size: 25px;
+
+    animation: floatHeart 8s linear infinite;
+}
+
+.floating-hearts span:nth-child(1) {
+    left: 10%;
+    bottom: -30px;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 35%;
+    bottom: -50px;
+    animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 60%;
+    bottom: -40px;
+    animation-delay: 4s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 80%;
+    bottom: -60px;
+    animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(5) {
+    left: 50%;
+    bottom: -80px;
+    animation-delay: 5s;
+}
+
+@keyframes floatHeart {
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+/* =================================
+   MEMORY
+================================= */
+
+#memoryScreen {
+    background:
+        radial-gradient(
+            circle at top,
+            #411653,
+            #110016 70%
+        );
+}
+
+.memory-container {
+    width: min(92%, 500px);
+    text-align: center;
+
+    position: relative;
+    z-index: 20;
+}
+
+.section-small {
+    color: #d9b8df;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    margin: 8px 0 20px;
+}
+
+
+/* =================================
+   MEMORY CARD
+================================= */
+
+.memory-card {
+    animation: memoryIn 0.8s ease;
+}
+
+@keyframes memoryIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.88) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+/* =================================
+   VIDEO FRAME
+================================= */
+
+.photo-wrapper {
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    max-height: 58vh;
+
+    padding: 7px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff80bd,
+            #a477ff,
+            #69c9ff
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* =================================
+   MEMORY VIDEO
+================================= */
+
+#memoryVideo {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: auto;
+
+    border-radius: 19px;
+
+    object-fit: contain;
+
+    background: #000;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+}
+
+
+/* =================================
+   VIDEO CONTROLS
+================================= */
+
+#memoryVideo::-webkit-media-controls-panel {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+
+/* =================================
+   PHOTO / VIDEO NUMBER
+================================= */
+
+.photo-number {
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    color: #d8c9df;
+
+}
+
+
+/* =================================
+   MEMORY CAPTION
+================================= */
+
+#photoCaption {
+
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    color: #ffd7eb;
+
+    margin: 4px 0 14px;
+
+}
+
+
+/* =================================
+   NEXT MEMORY BUTTON
+================================= */
+
+#nextMemory {
+
+    display: inline-block;
+
+    margin-top: 5px;
+
+    cursor: pointer;
+
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 480px) {
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .photo-wrapper {
+        aspect-ratio: 4 / 5;
+        max-height: 55vh;
+    }
+
+    #memoryVideo {
+        border-radius: 18px;
+    }
+
+}
+/* =================================
+   LETTER
+================================= */
+
+#letterScreen {
+    background: #120017;
+}
+
+.letter-photo-bg {
+    position: absolute;
+
+    inset: -15%;
+
+    background-image:
+        url("images/letter-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter: blur(2px);
+
+    opacity: 0.38;
+
+    animation: letterPhotoMove 16s ease-in-out infinite alternate;
+}
+
+@keyframes letterPhotoMove {
+
+    0% {
+        transform:
+            scale(1.05)
+            translate(-2%, -1%);
+    }
+
+    50% {
+        transform:
+            scale(1.12)
+            translate(2%, 1%);
+    }
+
+    100% {
+        transform:
+            scale(1.07)
+            translate(-1%, 2%);
+    }
+}
+
+.letter-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20,0,30,0.82),
+            rgba(65,8,50,0.70)
+        );
+}
+
+.letter-container {
+
+    position: relative;
+
+    z-index: 20;
+
+    width: min(92%, 520px);
+
+    max-height: 92vh;
+
+    text-align: center;
+
+    overflow-y: auto;
+
+    padding: 15px 0 25px;
+}
+
+.letter-small {
+    color: #efc4dd;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+.letter-container > h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+
+    margin: 5px 0 15px;
+}
+
+.letter-paper {
+
+    position: relative;
+
+    text-align: left;
+
+    padding: 28px 24px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff9f0,
+            #fff4e5
+        );
+
+    color: #492d3b;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45);
+
+    transform: rotate(-0.5deg);
+
+    animation: paperAppear 1s ease;
+}
+
+@keyframes paperAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(30px)
+            rotate(-3deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            rotate(-0.5deg);
+    }
+}
+
+.paper-decoration {
+    text-align: center;
+
+    color: #d87ba7;
+
+    font-size: 22px;
+
+    margin-bottom: 4px;
+}
+
+.letter-paper h3 {
+
+    font-family: "Caveat", cursive;
+
+    font-size: 32px;
+
+    color: #8b365d;
+
+    margin-bottom: 8px;
+}
+
+.letter-paper p {
+
+    font-family: "Caveat", cursive;
+
+    font-size: 20px;
+
+    line-height: 1.35;
+
+    margin-bottom: 10px;
+}
+
+.signature {
+
+    text-align: right;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 20px;
+
+    color: #8b365d;
+
+    margin-top: 12px;
+}
+
+.birthday-small {
+
+    text-align: center;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 24px;
+
+    color: #a3466e;
+
+    margin-top: 12px;
+}
+
+.letter-container .main-btn {
+    margin-top: 18px;
+}
+
+
+/* =================================
+   FINAL
+================================= */
+
+#finalScreen {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #43134c,
+            #120016 70%
+        );
+}
+
+.final-container {
+
+    position: relative;
+
+    z-index: 20;
+
+    width: min(90%, 500px);
+
+    text-align: center;
+
+    animation: finalAppear 1.5s ease;
+}
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.cake {
+    font-size: 75px;
+
+    animation:
+        cakeFloat 2s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.final-small {
+    color: #dcbddc;
+
+    margin-top: 10px;
+}
+
+.final-container h1 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 43px;
+
+    line-height: 1;
+
+    margin-top: 10px;
+}
+
+.final-container h1 span {
+
+    display: block;
+
+    color: #ff9aca;
+}
+
+.final-container h2 {
+
+    font-family: "Caveat", cursive;
+
+    font-size: 55px;
+
+    color: #ffd3e8;
+
+    margin-top: 8px;
+}
+
+.final-message {
+
+    max-width: 400px;
+
+    margin: 15px auto;
+
+    color: #e2d2e4;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+.final-hearts {
+
+    font-size: 20px;
+
+    margin: 18px 0;
+}
+
+.made {
+
+    font-family: "Caveat", cursive;
+
+    font-size: 22px;
+
+    color: #f1bdd8;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-height: 700px) {
+
+    .birthday-card {
+        padding: 25px 20px;
+    }
+
+    .birthday-card h1 {
+        font-size: 42px;
+    }
+
+    .name {
+        font-size: 45px;
+    }
+
+    .photo-wrapper {
+        max-height: 48vh;
+    }
+
+    .letter-paper {
+        padding: 20px;
+    }
+
+    .letter-paper p {
+        font-size: 18px;
+    }
+}

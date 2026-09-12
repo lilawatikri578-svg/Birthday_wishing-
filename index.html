@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Saru ❤️</title>
+
+    <!-- Beautiful fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- FIREWORK CANVAS -->
+<canvas id="fireworks"></canvas>
+
+
+<!-- MUSIC -->
+<audio id="birthdayMusic" loop>
+    <source src="audio/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" class="music-btn">
+    🎵 Music
+</button>
+<!-- ======= COUNTDOWN ===========\== -->
+<section id="countdownScreen" class="screen active">
+
+    <div class="countdown-content">
+
+        <p class="prepare">
+            Something special is waiting...
+        </p>
+
+        <div id="countdownNumber">3</div>
+
+        <h2 id="countdownText">
+            Get Ready ❤️
+        </h2>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BIRTHDAY ================= -->
+
+<section id="birthdayScreen" class="screen">
+
+    <div class="birthday-bg"></div>
+
+    <div class="floating-hearts">
+        <span>S</span>
+        <span>A</span>
+        <span>R</span>
+        <span>U</span>
+        <span>✦</span>
+    </div>
+
+    <div class="birthday-card">
+
+        <p class="top-line">
+            Today is a very special day ✨
+        </p>
+
+        <h1>
+            HAPPY
+            <span>BIRTHDAY</span>
+        </h1>
+
+        <div class="name">
+            SARU
+            <span>❤️</span>
+        </div>
+
+        <p class="wish">
+            May your life always be filled with
+            happiness, beautiful moments and
+            countless reasons to smile.
+        </p>
+
+        <button id="birthdayNext" class="main-btn">
+            Continue ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+  <!-- ========= MEMORY SECTION ========= -->
+<section id="memoryScreen" class="screen">
+
+    <div class="memory-container">
+
+        <p class="section-small">
+            A few beautiful moments ✨
+        </p>
+
+        <h2 class="section-title">
+            Our Memories 📸
+        </h2>
+
+        <div class="memory-card">
+
+            <div class="photo-wrapper">
+
+                <video
+                    id="memoryVideo"
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+                    <source id="memorySource" src="./v1.mp4" type="video/mp4">
+                    
+                    Your browser does not support video.
+                </video>
+
+            </div>
+
+            <div class="photo-number">
+                <span id="photoNumber">1</span> / 3
+            </div>
+
+            <p id="photoCaption">
+                A beautiful memory ✨
+            </p>
+
+            <!-- ONLY ONE NEXT BUTTON -->
+            <button id="nextMemory" class="main-btn">
+                Next Memory 💫
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========== LETTER =========== -->
+
+<section id="letterScreen" class="screen">
+
+    <!-- Moving background photo -->
+    <div class="letter-photo-bg"></div>
+
+    <div class="letter-overlay"></div>
+
+    <div class="letter-container">
+
+        <p class="letter-small">
+            From my heart to you 💌
+        </p>
+
+        <h2>
+            A Little Letter
+        </h2>
+
+        <div class="letter-paper">
+
+            <div class="paper-decoration">
+                ✦
+            </div>
+
+            <h3>
+                Dear Saru ❤️
+            </h3>
+
+            <p>
+                On your special day, I just want to wish
+                you all the happiness in the world.
+            </p>
+
+            <p>
+                May every new day bring you new dreams,
+                new opportunities and beautiful memories.
+            </p>
+
+            <p>
+                Keep smiling, keep believing in yourself
+                and never stop being the wonderful person
+                you are.
+            </p>
+
+            <p>
+                I hope this little surprise brings a smile
+                to your face today. ✨
+            </p>
+
+            <div class="signature">
+                With lots of good wishes ❤️
+            </div>
+
+            <div class="birthday-small">
+                Happy Birthday, Saru! 🎂
+            </div>
+
+        </div>
+
+        <button id="letterNext" class="main-btn">
+            One More Surprise 💝
+        </button>
+
+    </div>
+
+</section>
+<!-- ======== FINAL ============= -->
+<section id="finalScreen" class="screen">
+
+    <div class="final-stars"></div>
+
+    <div class="final-container">
+
+        <div class="cake">
+            🎂
+        </div>
+
+        <p class="final-small">
+            And finally...
+        </p>
+
+        <h1>
+            HAPPY
+            <span>BIRTHDAY</span>
+        </h1>
+
+        <h2>
+            SARSWATI ❤️
+        </h2>
+
+        <p class="final-message">
+            May your coming years be filled with
+            happiness, success, laughter and
+            unforgettable memories.
+        </p>
+
+        <div class="final-hearts">
+            ❤️ ✨ ❤️ ✨ ❤️
+        </div>
+
+        <p class="made">
+            Made specially for you 💝
+        </p>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
